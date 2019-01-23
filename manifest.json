@@ -1,0 +1,33 @@
+{
+    "name":"CRM",
+    "description":"CRM Extention",
+    "version":"1.0",
+    "manifest_version":2,
+    "permissions": [
+        "activeTab",
+        "https://crm.atedev.co.uk/"
+    ],
+    "browser_action": {
+        "default_icon": "logo.png"
+    },
+    "background": {
+        "page": "crm-tool/index.html"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*/*"
+            ],
+            "css": [
+                "crm-tool/styles.css"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+    "web_accessible_resources": [
+        "logo.png"
+    ]
+}

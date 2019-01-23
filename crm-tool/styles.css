@@ -1,0 +1,200 @@
+#crm-tool {
+    background-color: #37474f;
+    box-shadow: -1px 0 1px rgba(255, 255, 255, .3);
+    bottom: 0;
+    display: none;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    -webkit-transform: translateX(300px);
+    -ms-transform: translateX(300px);
+    transform: translateX(300px);
+    transition: all .4s ease;
+    width: 280px;
+    z-index: 999999;
+    -webkit-font-smoothing: antialiased;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+#crm-tool.active {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+    -webkit-user-select: all;
+    -moz-user-select: all;
+    -ms-user-select: all;
+    user-select: all;
+    display: block;
+}
+
+/* HEADER */
+#crm-tool.active #header {
+    background: #263238;
+    width: 100%;
+    padding: 5px;
+    height: 10%;
+    display: flex;
+    color: white;
+    align-items: center;
+}
+
+.crm-logo {
+    width: 30px;
+    height: 30px;
+    background-size: 100% 100%
+}
+
+#header-title-content {
+    display: flex;
+    align-items: center;
+    margin-left: 15px
+}
+
+#header-title-content div{
+    margin-left: 15px
+}
+
+/* BODY */
+
+#body {
+    height: 85%;
+    width: 100%;
+    padding: 20px;
+}
+
+#crm-tool .form__field {
+    background: 0 0;
+    border: 1px solid #535560;
+    border-bottom: 0;
+    border-radius: 0;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    height: 40px;
+    padding: 10px;
+    width: 240px
+}
+#crm-tool .form__field:first-child {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px
+}
+#crm-tool .form__field:last-child {
+    border-bottom: 1px solid #535560;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px
+}
+#crm-tool .form__field:focus {
+    box-shadow: none;
+    outline: 0
+}
+#crm-tool .form__field--large {
+    height: 78px !important;
+    resize: none
+}
+#crm-tool .form__select-holder {
+    position: relative
+}
+#crm-tool .form__select-holder .form__field {
+    border-radius: 0
+}
+#crm-tool .form__select-holder:first-child .form__field {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px
+}
+#crm-tool .form__select-holder .arrow {
+    pointer-events: none;
+    position: absolute;
+    right: 14px;
+    top: 14px
+}
+#crm-tool .form__select {
+    background-color: #2b2e3c;
+    padding-right: 30px;
+    white-space: nowrap;
+    -webkit-appearance: none
+}
+
+#crm-tool .form__button {
+    background-color: #4da07a;
+    border: 0;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    height: 50px;
+    line-height: 46px;
+    margin-top: 20px;
+    position: relative;
+    transition: background-color .2s ease;
+    width: 240px
+}
+#crm-tool .form__button:hover {
+    background-color: #5fb089
+}
+#crm-tool .form__button:focus {
+    outline: 0
+}
+
+/* FOOTER */
+
+#footer {
+    height: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: white;
+    font-size: 10px;
+}
+
+/* ARROW TOGGLE STYLE*/
+#arrow-toggle {
+    color: #fff;
+    cursor: pointer;
+    font-size: 28px;
+    font-weight: 600;
+    height: 32px;
+    left: 0;
+    line-height: 24px;
+    position: relative;
+    text-align: center;
+    top: 0;
+    transition: background-color .2s ease;
+    width: 32px;
+    display: inline-block;
+}
+
+#arrow-toggle:hover {
+    background-color: #444651
+}
+
+#arrow-toggle .arrow {
+    left: 10px;
+    position: absolute;
+    top: 10px
+}
+
+#crm-tool .arrow:after {
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    content: '';
+    display: block;
+    height: 6px;
+    width: 6px
+}
+#crm-tool .arrow--right:after {
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg)
+}
+#crm-tool .arrow--down:after {
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg)
+}

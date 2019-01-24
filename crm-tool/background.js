@@ -1,5 +1,6 @@
 // REGISTER EVENTS TO COMUNICATION WITH CONTENT-SCRIPT AND BROWSER
-
+var token = null
+console.log('una vez')
 chrome.browserAction.onClicked.addListener(function(tab) {
     chrome.tabs.query({
         active: true,
@@ -19,8 +20,18 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
 });
 
 chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
-    if (msg.cmd === 'getHTML') {
-        sendResponse(document.getElementById('crm-tool')
-            .innerHTML.trim());
+    switch (msg.cmd) {
+        case 'getHTML':
+            sendResponse(document.getElementById('crm-tool')
+                .innerHTML.trim());
+            break;
+        case 'getToken':
+            sendResponse(token);
+            break;
+        case 'setToken':
+            token = msg.token;
+            break;
+        default:
+            console.log('CRM ATE :: ORDER NOT FOUND')
     }
 });

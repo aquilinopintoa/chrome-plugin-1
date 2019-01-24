@@ -3,6 +3,12 @@ var CRMbaseUrl = 'https://crm.atedev.co.uk';
 var injected = false;
 var token = null;
 
+chrome.runtime.sendMessage({
+    cmd: 'getToken'
+}, function (responseToken) {
+    token = responseToken
+})
+
 // COMUNICATION WITH BACKGROUND 
 chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
     if (msg.cmd === 'toggleSidebar') {
@@ -73,7 +79,6 @@ function submitFormData () {
     const query = "&website=" + document.location.origin
     xhr.open("GET", CRMbaseUrl + "/api/suppliers?page=1&perPage=1" + query);
     xhr.setRequestHeader("Content-Type", "application/json");
-    console.log(token)
     xhr.setRequestHeader("authorization-app", token);
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
@@ -132,8 +137,12 @@ function login () {
             switch (xhr.status) {
                 case 200:
                     const response = JSON.parse(xhr.response)
-                    token = response.token
-                    hideFormLogin()
+                    chrome.runtime.sendMessage({
+                        cmd: 'setToken',
+                        token: response.token
+                    }, function () {
+                        hideFormLogin()
+                    })
                     break;
                 case 400:
                     // showError(

@@ -66,6 +66,18 @@
     padding: 20px;
 }
 
+#crm-tool .show-login #form-data-container {
+    display: none !important;
+}
+
+#crm-tool .show-login #form-login-container {
+    display: block !important;
+}
+
+#crm-tool #form-login-container {
+    display: none
+}
+
 #crm-tool .form__field {
     background: 0 0;
     border: 1px solid #535560;

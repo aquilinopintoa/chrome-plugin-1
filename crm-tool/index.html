@@ -17,16 +17,37 @@
             </div>
         </div>
         <div id="body">
-            <div id="form-data">
-                <input class="form__field" type="text" name="name" placeholder="Name *" />
-                <input class="form__field" type="text" name="website" placeholder="Website *" />
-                <input class="form__field" type="text" name="email" placeholder="Email *" />
-                <input class="form__field" type="text" name="postcode" placeholder="Postcode *" />
-                <input class="form__field" type="text" name="phone" placeholder="Phone *" />
+            <div id="form-data-container">
+                <div id="form-data">
+                    <input class="form__field" type="text" name="name" placeholder="Name *" />
+                    <input class="form__field" type="text" name="website" placeholder="Website *" />
+                    <input class="form__field" type="text" name="email" placeholder="Email *" />
+                    <input class="form__field" type="text" name="postcode" placeholder="Postcode *" />
+                    <input class="form__field" type="text" name="phone" placeholder="Phone *" />
+                </div>
+                <button id="submit-form-data" class="form__button submit-button" type="submit">
+                    Save in CRM
+                </button>
             </div>
-            <button id="submit-form-data" class="form__button submit-button" type="submit">
-                Save in CRM
-            </button>
+            <div id="form-login-container">
+                <div id="form-data">
+                    <input
+                        id="crm-user-email-field"
+                        class="form__field"
+                        type="text"
+                        name="name"
+                        placeholder="Email *" />
+                    <input
+                        id="crm-user-password-field"
+                        class="form__field"
+                        type="password"
+                        name="password"
+                        placeholder="Password *" />
+                </div>
+                <button id="submit-form-login" class="form__button submit-button" type="submit">
+                    Login
+                </button>
+            </div>
         </div>
         <div id="footer">
             ATE CRM TOOL version 1.0

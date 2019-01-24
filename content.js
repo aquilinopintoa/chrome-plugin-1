@@ -1,7 +1,7 @@
 // THIS FILE IS EXEC INTO ACTIVE PAGE
 var CRMbaseUrl = 'https://crm.atedev.co.uk';
 var injected = false;
-token = null;
+var token = null;
 
 // COMUNICATION WITH BACKGROUND 
 chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
@@ -70,8 +70,10 @@ function submitFormData () {
     event.preventDefault();
 
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", CRMbaseUrl + "/api/suppliers?page=1&perPage=1");
+    const query = "&website=" + document.location.origin
+    xhr.open("GET", CRMbaseUrl + "/api/suppliers?page=1&perPage=1" + query);
     xhr.setRequestHeader("Content-Type", "application/json");
+    console.log(token)
     xhr.setRequestHeader("authorization-app", token);
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
